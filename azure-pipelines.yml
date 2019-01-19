@@ -1,0 +1,28 @@
+variables:
+  PackageVersion: '1.0.0'
+  VersionBuildNumber: $[counter('$(PackageVersion)', 1)]
+  PreReleaseVersion: $(PackageVersion).$(VersionBuildNumber)
+
+queue:
+  name: Hosted VS2017
+
+trigger:
+  - master
+
+steps:
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet pack Common.Domains'
+  inputs:
+    command: pack
+    packagesToPack: LeoPetri.Common.Domains/LeoPetri.Common.Domains.csproj
+    versioningScheme: byEnvVar
+    versionEnvVar: PreReleaseVersion
+    
+- task: NuGetCommand@2
+  displayName: 'NuGet push Common'
+  continueOnError: true
+  inputs:
+    command: push
+    nuGetFeedType: external
+    publishFeedCredentials: LeoPetri.Common
