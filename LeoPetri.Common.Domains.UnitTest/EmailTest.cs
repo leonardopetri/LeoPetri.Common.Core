@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace LeoPetri.Common.Domain.UnitTest
+namespace LeoPetri.Common.Domains.UnitTest
 {
     public class EmailTest
     {

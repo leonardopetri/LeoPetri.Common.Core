@@ -1,7 +1,7 @@
-﻿using LeoPetri.Common.Function;
+﻿using LeoPetri.Common.Functions;
 using System;
 
-namespace LeoPetri.Common.Domain
+namespace LeoPetri.Common.Domains
 {
     public class Email
     {

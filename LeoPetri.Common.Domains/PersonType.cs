@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace LeoPetri.Common.Domain
+namespace LeoPetri.Common.Domains
 {
     public enum PersonType
     {

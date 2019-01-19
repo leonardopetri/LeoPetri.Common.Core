@@ -1,8 +1,8 @@
 ﻿using System;
 using Xunit;
-using LeoPetri.Common.Function;
+using LeoPetri.Common.Functions;
 
-namespace LeoPetri.Common.Domain.UnitTest
+namespace LeoPetri.Common.Domains.UnitTest
 {
     public class PersonTest
     {

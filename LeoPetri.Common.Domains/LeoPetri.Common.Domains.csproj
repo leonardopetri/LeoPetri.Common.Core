@@ -8,4 +8,8 @@
 https://github.com/leonardopetri/Miscellaneous-Common</Description>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="LeoPetri.Common.Functions" Version="1.0.0.8" />
+  </ItemGroup>
+
 </Project>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace LeoPetri.Common.Domain.UnitTest
+namespace LeoPetri.Common.Domains.UnitTest
 {
     public class AddressTest
     {
