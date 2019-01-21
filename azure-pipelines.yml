@@ -10,17 +10,15 @@ trigger:
   - master
 
 steps:
-- task: DotNetCoreCLI@2
-  displayName: 'build Common.Domains.UnitTest'
+- script: |
+    dotnet build
+    dotnet test tests/LeoPetri.Common.Domains.UnitTest --logger trx
+
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
   inputs:
-    command: 'build'
-    projects: 'tests/LeoPetri.Common.Domains.UnitTest/*.csproj'
-    
-- task: VSTest@2
-  displayName: 'unit test Common.Domains'
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: '**\*Test*.dll!**\*TestAdapter.dll!**\obj\**'
+    testRunner: VSTest
+    testResultsFiles: '**/**/*.trx'
     
 - task: DotNetCoreCLI@2
   displayName: 'dotnet pack Common.Domains'
