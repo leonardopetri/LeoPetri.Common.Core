@@ -4,14 +4,14 @@ using LeoPetri.Common.Functions;
 
 namespace LeoPetri.Common.Domains.UnitTest
 {
-    public class PersonTest
+    public class PersonShould
     {
         [Theory]
         [InlineData("leonardo petri da silva", "377.897.884-50")]
         [InlineData("leonardo petri silva", "676.868.407-86")]
         [InlineData("Leonardo Petri Silva", "289.774.061-29")]
         [InlineData("LEONARDO PETRI", "42623257922")]
-        public void NaturalPersonCreateTeste(string name, string countryId)
+        public void BeCreatedAsNaturalPerson(string name, string countryId)
         {
             var naturalPerson = new NaturalPerson();
 
@@ -29,7 +29,7 @@ namespace LeoPetri.Common.Domains.UnitTest
         [InlineData("leonardo petri silva", "676.868.467-86")]
         [InlineData("Leonardo Petri Silva", "289.774.064-")]
         [InlineData("LEONARDO PETRI", "42623257952")]
-        public void NaturalPersonCreateErrorTeste(string name, string countryId)
+        public void BeCreatedAsNaturalPersonWithError(string name, string countryId)
         {
             var exception = Assert.Throws<FormatException>(() => new NaturalPerson(name, countryId));
             Assert.Equal("Not a valid CPF.", exception.Message);
@@ -40,7 +40,7 @@ namespace LeoPetri.Common.Domains.UnitTest
         [InlineData("LPSOFT TECNOLOGIA DA INFORMAÇÃO LTDA.", "36.143.935/0001-74")]
         [InlineData("lpsoft tenolocia ltda", "54.018.514/0001-01")]
         [InlineData("lps", "16638201000159")]
-        public void LegalEntityCreateTeste(string name, string countryId)
+        public void BeCreatedAsLegalEntity(string name, string countryId)
         {
             var legalEntity = new LegalEntity();
 
@@ -58,7 +58,7 @@ namespace LeoPetri.Common.Domains.UnitTest
         [InlineData("LPSOFT TECNOLOGIA DA INFORMAÇÃO LTDA.", "36.143.930001-74")]
         [InlineData("lpsoft tenolocia ltda", "54.018.514/0011-01")]
         [InlineData("lps", "16638201000156")]
-        public void LegalEntityCreateErrorTeste(string name, string countryId)
+        public void BeCreatedAsLegalEntityWithError(string name, string countryId)
         {
             var exception = Assert.Throws<FormatException>(() => new LegalEntity(name, countryId));
             Assert.Equal("Not a valid CNPJ.", exception.Message);

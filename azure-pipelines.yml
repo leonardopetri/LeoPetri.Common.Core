@@ -10,12 +10,17 @@ trigger:
   - master
 
 steps:
-
+- task: VSTest@2
+  displayName: 'unit test Common.Domains'
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: 'tests\**\*Test*.dll'
+    
 - task: DotNetCoreCLI@2
   displayName: 'dotnet pack Common.Domains'
   inputs:
     command: pack
-    packagesToPack: LeoPetri.Common.Domains/LeoPetri.Common.Domains.csproj
+    packagesToPack: src/LeoPetri.Common.Domains/LeoPetri.Common.Domains.csproj
     versioningScheme: byEnvVar
     versionEnvVar: PreReleaseVersion
     

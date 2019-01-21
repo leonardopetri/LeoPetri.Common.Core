@@ -5,10 +5,10 @@ using Xunit;
 
 namespace LeoPetri.Common.Domains.UnitTest
 {
-    public class AddressTest
+    public class AddressShould
     {
         [Fact]
-        public void AddressCreateTest()
+        public void BeCreated()
         {
             var address = new Address()
             {

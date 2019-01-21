@@ -3,10 +3,10 @@ using Xunit;
 
 namespace LeoPetri.Common.Domains.UnitTest
 {
-    public class EmailTest
+    public class EmailShould
     {
         [Fact]
-        public void EmailCreateTest()
+        public void BeCreated()
         {
             var email = new Email("leonardopetri@gmail.com");
 
@@ -16,7 +16,7 @@ namespace LeoPetri.Common.Domains.UnitTest
         }
 
         [Fact]
-        public void EmailCreateErrorTest()
+        public void BeCreatedWithError()
         {
             var exception = Assert.Throws<FormatException>(() => new Email("leonardopetrigmail.com"));
 

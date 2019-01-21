@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LeoPetri.Common.Domains\LeoPetri.Common.Domains.csproj" />
+    <ProjectReference Include="..\..\src\LeoPetri.Common.Domains\LeoPetri.Common.Domains.csproj" />
   </ItemGroup>
 
 </Project>
