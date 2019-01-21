@@ -14,14 +14,17 @@ steps:
     dotnet build
     dotnet test tests/LeoPetri.Common.Domains.UnitTest --logger trx
 
+  displayName: 'Build And Test LeoPetri.Common.Domains'
+  
 - task: PublishTestResults@2
   condition: succeededOrFailed()
+  displayName: 'publish tests'
   inputs:
     testRunner: VSTest
     testResultsFiles: '**/**/*.trx'
     
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet pack Common.Domains'
+  displayName: 'Dotnet Pack Common.Domains'
   inputs:
     command: pack
     packagesToPack: src/LeoPetri.Common.Domains/LeoPetri.Common.Domains.csproj
@@ -29,7 +32,7 @@ steps:
     versionEnvVar: PreReleaseVersion
     
 - task: NuGetCommand@2
-  displayName: 'NuGet push Common'
+  displayName: 'NuGet Push Common.Domains'
   continueOnError: true
   inputs:
     command: push
