@@ -11,8 +11,9 @@ trigger:
 
 steps:
 - task: DotNetCoreCLI@2
+  displayName: 'build Common.Domains.UnitTest'
   inputs:
-    command: 'restore'
+    command: 'build'
     projects: 'tests/LeoPetri.Common.Domains.UnitTest/*.csproj'
     
 - task: VSTest@2
