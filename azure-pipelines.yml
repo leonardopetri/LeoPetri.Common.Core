@@ -10,11 +10,16 @@ trigger:
   - master
 
 steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: 'tests/LeoPetri.Common.Domains.UnitTest/*.csproj'
+    
 - task: VSTest@2
   displayName: 'unit test Common.Domains'
   inputs:
     testSelector: 'testAssemblies'
-    testAssemblyVer2: 'tests\**\*Test*.dll'
+    testAssemblyVer2: '**\*Test*.dll!**\*TestAdapter.dll!**\obj\**'
     
 - task: DotNetCoreCLI@2
   displayName: 'dotnet pack Common.Domains'
