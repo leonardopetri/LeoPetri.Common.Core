@@ -9,7 +9,7 @@ https://github.com/leonardopetri/Miscellaneous-Common</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="LeoPetri.Common" Version="1.0.0.12" />
+    <PackageReference Include="LeoPetri.Common" Version="1.0.0.13" />
   </ItemGroup>
 
 </Project>

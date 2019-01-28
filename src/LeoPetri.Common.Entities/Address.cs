@@ -1,4 +1,5 @@
-﻿using LeoPetri.Common.Functions;
+﻿using LeoPetri.Common.Extensions;
+using LeoPetri.Common.Functions;
 using System;
 
 namespace LeoPetri.Common.Entities

@@ -1,6 +1,6 @@
 ﻿using System;
 using Xunit;
-using LeoPetri.Common.Functions;
+using LeoPetri.Common.Extensions;
 
 namespace LeoPetri.Common.Entities.UnitTest
 {
