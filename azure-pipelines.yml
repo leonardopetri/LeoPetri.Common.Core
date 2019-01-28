@@ -12,9 +12,9 @@ trigger:
 steps:
 - script: |
     dotnet build
-    dotnet test tests/LeoPetri.Common.Domains.UnitTest --logger trx
+    dotnet test tests/LeoPetri.Common.Entities.UnitTest --logger trx
 
-  displayName: 'Build And Test LeoPetri.Common.Domains'
+  displayName: 'Build And Test LeoPetri.Common.Entities'
   
 - task: PublishTestResults@2
   condition: succeededOrFailed()
@@ -24,15 +24,15 @@ steps:
     testResultsFiles: '**/**/*.trx'
     
 - task: DotNetCoreCLI@2
-  displayName: 'Dotnet Pack Common.Domains'
+  displayName: 'Dotnet Pack Common.Entities'
   inputs:
     command: pack
-    packagesToPack: src/LeoPetri.Common.Domains/LeoPetri.Common.Domains.csproj
+    packagesToPack: src/LeoPetri.Common.Entities/LeoPetri.Common.Entities.csproj
     versioningScheme: byEnvVar
     versionEnvVar: PreReleaseVersion
     
 - task: NuGetCommand@2
-  displayName: 'NuGet Push Common.Domains'
+  displayName: 'NuGet Push Common.Entities'
   continueOnError: true
   inputs:
     command: push
