@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace LeoPetri.Common.Domains.UnitTest
+namespace LeoPetri.Common.Entities.UnitTest
 {
     public class EmailShould
     {

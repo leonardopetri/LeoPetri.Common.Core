@@ -1,8 +1,9 @@
 ﻿using LeoPetri.Common.Functions;
+using System;
 
-namespace LeoPetri.Common.Domains
+namespace LeoPetri.Common.Entities
 {
-    public class Address
+    public class Address : BaseEntity<Guid>
     {
         private string _street;
         private string _complement;
@@ -10,6 +11,10 @@ namespace LeoPetri.Common.Domains
         private string _city;
         private string _country;
         private string _zipCode;
+
+        public Address() : base(Guid.NewGuid()) { }
+
+        public Address(Guid id) : base(id) { }
 
         public string Street
         {

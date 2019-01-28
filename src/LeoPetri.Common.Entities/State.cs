@@ -1,6 +1,6 @@
 ﻿using LeoPetri.Common.Functions;
 
-namespace LeoPetri.Common.Domains
+namespace LeoPetri.Common.Entities
 {
     public class State
     {

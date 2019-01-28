@@ -2,7 +2,7 @@
 using Xunit;
 using LeoPetri.Common.Functions;
 
-namespace LeoPetri.Common.Domains.UnitTest
+namespace LeoPetri.Common.Entities.UnitTest
 {
     public class PersonShould
     {

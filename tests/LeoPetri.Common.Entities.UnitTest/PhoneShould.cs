@@ -1,16 +1,30 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
-namespace LeoPetri.Common.Domains.UnitTest
+namespace LeoPetri.Common.Entities.UnitTest
 {
     public class PhoneShould
     {
+        [Theory]
+        [InlineData(11234512342, "df620aa9-bfa5-4ea2-b042-20246bdf8b48")]
+        [InlineData(1123452342, "071315c8-33d2-4479-bb7c-2dc2b1c10f96")]
+        public void BeCreatedWithOnlyNumberLongAndId(ulong number, string guid)
+        {
+            var phone = new Phone(new Guid(guid), number);
+
+            Assert.Equal(guid, phone.Id.ToString());
+            Assert.Equal(ushort.Parse(number.ToString().Substring(0, 2)), phone.Ddd);
+            Assert.Equal(ulong.Parse(number.ToString().Substring(2)), phone.Number);
+            Assert.Equal(55, phone.Ddi);
+        }
+
         [Theory]
         [InlineData(11234512342)]
         [InlineData(1123452342)]
         public void BeCreatedWithOnlyNumberLong(ulong number)
         {
             var phone = new Phone(number);
-
+            
             Assert.Equal(ushort.Parse(number.ToString().Substring(0, 2)), phone.Ddd);
             Assert.Equal(ulong.Parse(number.ToString().Substring(2)), phone.Number);
             Assert.Equal(55, phone.Ddi);
