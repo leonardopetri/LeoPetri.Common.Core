@@ -1,8 +1,8 @@
 ﻿using LeoPetri.Common.Extensions;
 
-namespace LeoPetri.Common.Entities
+namespace LeoPetri.Common.Core.ValueObjects
 {
-    public class State
+    public struct State
     {
         private string _name;
         private string _abbreviation;
@@ -17,19 +17,6 @@ namespace LeoPetri.Common.Entities
         {
             get { return _abbreviation; }
             set { _abbreviation = value.ToUpper(); }
-        }
-
-        public State() { }
-
-        public State(string abbreviation)
-        {
-            this.Abbreviation = abbreviation;
-        }
-
-        public State(string name, string abbreviation)
-        {
-            this.Name = name;
-            this.Abbreviation = abbreviation;
         }
     }
 }

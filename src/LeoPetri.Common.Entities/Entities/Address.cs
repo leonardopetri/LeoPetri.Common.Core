@@ -1,16 +1,16 @@
-﻿using LeoPetri.Common.Extensions;
+﻿using LeoPetri.Common.Core.ValueObjects;
+using LeoPetri.Common.Extensions;
 using LeoPetri.Common.Functions;
 using System;
 
-namespace LeoPetri.Common.Entities
+namespace LeoPetri.Common.Core.Entities
 {
-    public class Address : BaseEntity<Guid>
+    public class Address : Entity<Guid>
     {
         private string _street;
         private string _complement;
         private string _district;
         private string _city;
-        private string _country;
         private string _zipCode;
 
         public Address() : base(Guid.NewGuid()) { }
@@ -43,13 +43,9 @@ namespace LeoPetri.Common.Entities
             set { _city = value.ToUpperFirstLetterName(); }
         }
 
-        public State State { get; set; }
+        public State? State { get; set; }
 
-        public string Country
-        {
-            get { return _country; }
-            set { _country = value.ToUpperFirstLetterName(); }
-        }
+        public Country? Country { get; set; } = new Country() { Id = 76, Name = "Brasil", Abbreviation = "BR" };
 
         public string ZipCode
         {
@@ -59,7 +55,7 @@ namespace LeoPetri.Common.Entities
 
         public override string ToString()
         {
-            return AddressFunctions.ToBrazilianFormat(this.Street, this.Number, this.Complement, this.District, this.City, (string.IsNullOrWhiteSpace(this.State.Abbreviation) ? this.State.Name : this.State.Abbreviation), this.ZipCode);
+            return AddressFunctions.ToBrazilianFormat(this.Street, this.Number, this.Complement, this.District, this.City, (string.IsNullOrWhiteSpace(this.State?.Abbreviation) ? this.State?.Name : this.State?.Abbreviation), this.ZipCode);
         }
     }
 }

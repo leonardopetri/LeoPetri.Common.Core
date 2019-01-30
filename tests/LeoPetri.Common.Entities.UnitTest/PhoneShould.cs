@@ -1,7 +1,8 @@
-﻿using System;
+﻿using LeoPetri.Common.Core.Entities;
+using System;
 using Xunit;
 
-namespace LeoPetri.Common.Entities.UnitTest
+namespace LeoPetri.Common.Core.UnitTest
 {
     public class PhoneShould
     {

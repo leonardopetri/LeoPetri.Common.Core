@@ -1,9 +1,9 @@
 ﻿using LeoPetri.Common.Extensions;
 using System;
 
-namespace LeoPetri.Common.Entities
+namespace LeoPetri.Common.Core.Entities
 {
-    public class Phone : BaseEntity<Guid> 
+    public class Phone : Entity<Guid> 
     {
         public ushort Ddi { get; private set; } = 55;
         public ushort Ddd { get; private set; }

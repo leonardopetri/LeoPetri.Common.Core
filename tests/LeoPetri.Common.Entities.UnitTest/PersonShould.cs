@@ -1,8 +1,10 @@
 ﻿using System;
 using Xunit;
 using LeoPetri.Common.Extensions;
+using LeoPetri.Common.Core.Entities;
+using LeoPetri.Common.Core.ValueObjects;
 
-namespace LeoPetri.Common.Entities.UnitTest
+namespace LeoPetri.Common.Core.UnitTest
 {
     public class PersonShould
     {

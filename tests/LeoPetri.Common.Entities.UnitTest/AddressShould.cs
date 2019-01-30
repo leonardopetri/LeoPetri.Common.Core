@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LeoPetri.Common.Core.Entities;
+using LeoPetri.Common.Core.ValueObjects;
 using Xunit;
 
-namespace LeoPetri.Common.Entities.UnitTest
+namespace LeoPetri.Common.Core.UnitTest
 {
     public class AddressShould
     {
@@ -17,7 +16,6 @@ namespace LeoPetri.Common.Entities.UnitTest
                 State = new State() { Name = "são PAULO", Abbreviation = "sP" },
                 City = "Santo André",
                 Complement = "apto. 72",
-                Country = "Brasil",
                 Number = 1010,
                 ZipCode = "9080320"
             };

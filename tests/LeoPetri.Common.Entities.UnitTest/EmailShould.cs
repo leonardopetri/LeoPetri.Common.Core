@@ -1,10 +1,17 @@
-using System;
+using LeoPetri.Common.Core.DafaultValidators;
+using LeoPetri.Common.Core.Entities;
+using System.Linq;
 using Xunit;
 
-namespace LeoPetri.Common.Entities.UnitTest
+namespace LeoPetri.Common.Core.UnitTest
 {
     public class EmailShould
     {
+        public EmailShould()
+        {
+            Validator.RegisterValidator<Email, EmailDafaultValidator>();
+        }
+
         [Fact]
         public void BeCreated()
         {
@@ -18,9 +25,11 @@ namespace LeoPetri.Common.Entities.UnitTest
         [Fact]
         public void BeCreatedWithError()
         {
-            var exception = Assert.Throws<FormatException>(() => new Email("leonardopetrigmail.com"));
+            var email = new Email("leonardopetrigmail.com");
+            
+            var isValid = email.Validate();
 
-            Assert.Equal("Not a valid email address.", exception.Message);
+            Assert.Equal("Not a valid email address.", email.BrokenRules.ToList()[0]);
         }
     }
 }

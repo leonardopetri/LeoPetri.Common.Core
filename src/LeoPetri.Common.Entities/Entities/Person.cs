@@ -1,9 +1,10 @@
-﻿using LeoPetri.Common.Extensions;
+﻿using LeoPetri.Common.Core.ValueObjects;
+using LeoPetri.Common.Extensions;
 using System;
 
-namespace LeoPetri.Common.Entities
+namespace LeoPetri.Common.Core.Entities
 {
-    public abstract class Person : BaseEntity<Guid>
+    public abstract class Person : Entity<Guid>
     {
         private string _countryId;
         private string _name;
