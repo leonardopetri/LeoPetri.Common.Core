@@ -2,7 +2,7 @@
 using System;
 using Xunit;
 
-namespace LeoPetri.Common.Core.UnitTest
+namespace LeoPetri.Common.Core.UnitTest.Entities
 {
     public class PhoneShould
     {

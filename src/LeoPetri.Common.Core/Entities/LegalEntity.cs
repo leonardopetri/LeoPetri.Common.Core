@@ -1,5 +1,4 @@
 ﻿using LeoPetri.Common.Core.ValueObjects;
-using LeoPetri.Common.Functions;
 using System;
 
 namespace LeoPetri.Common.Core.Entities

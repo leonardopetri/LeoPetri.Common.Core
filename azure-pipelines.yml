@@ -12,27 +12,27 @@ trigger:
 steps:
 - script: |
     dotnet build
-    dotnet test tests/LeoPetri.Common.Entities.UnitTest --logger trx
+    dotnet test tests/LeoPetri.Common.Core.UnitTest --logger trx
 
-  displayName: 'Build And Test LeoPetri.Common.Entities'
+  displayName: 'Build And Test LeoPetri.Common.Core'
   
 - task: PublishTestResults@2
   condition: succeededOrFailed()
-  displayName: 'publish tests'
+  displayName: 'Publish Tests'
   inputs:
     testRunner: VSTest
     testResultsFiles: '**/**/*.trx'
     
 - task: DotNetCoreCLI@2
-  displayName: 'Dotnet Pack Common.Entities'
+  displayName: 'Dotnet Pack Common.Core'
   inputs:
     command: pack
-    packagesToPack: src/LeoPetri.Common.Entities/LeoPetri.Common.Entities.csproj
+    packagesToPack: src/LeoPetri.Common.Core/LeoPetri.Common.Core.csproj
     versioningScheme: byEnvVar
     versionEnvVar: PreReleaseVersion
     
 - task: NuGetCommand@2
-  displayName: 'NuGet Push Common.Entities'
+  displayName: 'NuGet Push Common.Core'
   continueOnError: true
   inputs:
     command: push

@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using LeoPetri.Common.Core.Interfaces;
+using System.Collections.Generic;
 
 namespace LeoPetri.Common.Core
 {
     public abstract class Entity : IValidatable
     {
-        public IList<string> BrokenRules { get; set; }
+        public IList<string> Errors { get; set; }
+        public IList<string> Warnings { get; set; }
     }
 
     public abstract class Entity<TId> : Entity 
@@ -15,7 +17,8 @@ namespace LeoPetri.Common.Core
         public Entity(TId id)
         {
             this.Id = id;
-            this.BrokenRules = new List<string>();
+            this.Errors = new List<string>();
+            this.Warnings = new List<string>();
         }
 
         public override bool Equals(object obj)

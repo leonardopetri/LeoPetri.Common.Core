@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFrameworks>net40;net45;net451;net452;net46;net462;netstandard2.0</TargetFrameworks>
+	<TargetFrameworks>net45;net451;net452;net46;net462;netstandard2.0</TargetFrameworks>
 	<Authors>Leonardo Petri Silva</Authors>
 	<Description>Some common entities that i use.
 
@@ -10,6 +10,7 @@ https://github.com/leonardopetri/LeoPetri.Common.Entities</Description>
 
   <ItemGroup>
     <PackageReference Include="LeoPetri.Common" Version="1.0.0.13" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
 
 </Project>
